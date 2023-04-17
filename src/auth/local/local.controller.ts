@@ -66,7 +66,6 @@ export const loginController = async (req: LoginRequest, res: Response) => {
     const expirationIn = 60 * 60 * 24;
     
     const {id} = user;
-    console.log("USER FROM LOGIN" , id)
     const token = signToken({ email, password, id, expirationIn });
     
     res.status(201).json({
