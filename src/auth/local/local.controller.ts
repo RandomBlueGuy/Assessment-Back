@@ -38,9 +38,8 @@ export const signupController = async (req: SignupRequest, res: Response) => {
     const token = signToken({ email, password, id, expirationIn });
 
     res.status(201).json({
-      message: "The user has been Created successfully",
-      data: { email, encPassword },
-      token,
+      message: "The user has been created successfully",
+      data: { email },
     });
   } catch (error: any) {
     res.status(500).json({ message: error.message });
@@ -52,26 +51,25 @@ export const loginController = async (req: LoginRequest, res: Response) => {
     const { email, password } = req.body;
 
     const user = await login(email);
-    
+
     if (!user) {
-      throw new Error("Invalid email or password");
+      throw new Error("Invalid user credentials");
     }
-    
+
     const isValid = await bcrypt.compare(password, user.password);
-    
+
     if (!isValid) {
-      throw new Error("Invalid email or password");
+      throw new Error("Invalid user credentials");
     }
-    
+
     const expirationIn = 60 * 60 * 24;
-    
-    const {id} = user;
+
+    const { id } = user;
     const token = signToken({ email, password, id, expirationIn });
-    
+
     res.status(201).json({
-      message: "User login successful",
-      data: { email, password },
-      token,
+      message: `User login successful Welcome ${email}`,
+      data: { token },
     });
   } catch (error: any) {
     res.status(500).json({ message: error.message });

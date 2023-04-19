@@ -33,7 +33,7 @@ export const createList = async (listName: string, ownerId: string) => {
   });
 
   if (listOwner === null) {
-    return "Invalid User Id";
+    return "Invalid User identification";
   } else {
     return prisma.list.create({
       data: {

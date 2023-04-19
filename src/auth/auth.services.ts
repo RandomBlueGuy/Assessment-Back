@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client'
 import jwt from 'jsonwebtoken'
 
 const prisma = new PrismaClient()
-const DeveloperKey = process.env.SECRET_KEY as string
+const DeveloperKey = "HERE WOULD BE THE SECRET KEY BUT THERE'S NO NEED TO USE MORE SECURITY JUST IN THIS TASK" as string
 
 export const login = (email: string) => {
   return prisma.user.findUnique({
@@ -25,7 +25,6 @@ export const signToken = (payload: any) => {
 export const verifyToken = (token: string) => {
   try {
     const decoded = jwt.verify(token, DeveloperKey)
-    console.log("after decoded")
     return decoded
   } catch(error) {
     return false
