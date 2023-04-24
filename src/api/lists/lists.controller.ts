@@ -17,7 +17,7 @@ export const getAllListsController = async (
     const lists = await getAllLists();
     res.status(200).json({ message: "Lists found", data: lists });
   } catch (error: any) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message: "Sorry, there was an error during this process. Make sure to use the right credentials" });
   }
 };
 
@@ -36,7 +36,7 @@ export const getSingleListController = async (
       }
       res.status(201).json({ message: `List ${id} found!`, Lists: list })
     } catch(error: any) {
-      res.status(500).json({ message: error.message })
+      res.status(500).json({ message: "Sorry, there was an error during this process. Make sure to use the right credentials"})
     }
 };
 
@@ -52,7 +52,7 @@ export const deleteSingleListController = async (
      const list = await deleteSingleList(Number(id));
      res.json({message: `the list with the id:${id} was eliminated!`, deletedList: list});
    } catch(error: any) {
-     res.status(500).json({ message: error.message })
+     res.status(500).json({ message: "Sorry, there was an error during this process. Make sure to use the right credentials" })
    }
  }
    

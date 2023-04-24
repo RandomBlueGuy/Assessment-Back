@@ -42,7 +42,7 @@ export const signupController = async (req: SignupRequest, res: Response) => {
       data: { email },
     });
   } catch (error: any) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message:  "Sorry, there was an error during this process. Make sure to use the right credentials" });
   }
 };
 
@@ -72,6 +72,6 @@ export const loginController = async (req: LoginRequest, res: Response) => {
       data: { token },
     });
   } catch (error: any) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message: "Sorry, there was an error during this process. Make sure to use the right credentials"});
   }
 };

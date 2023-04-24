@@ -11,7 +11,7 @@ export const getAllUsersController = async (
     const user = await getAllUsers()
     res.status(200).json({ message: 'Users found', data: user })
   } catch(error: any) {
-    res.status(500).json({ message: error.message })
+    res.status(500).json({ message: "Sorry, there was an error during this process. Make sure to use the right credentials" })
   }
 }
 
@@ -42,7 +42,7 @@ export const getUserByIdController = async (
     }
     res.status(201).json({ message: 'User found', data: user })
   } catch(error: any) {
-    res.status(500).json({ message: error.message })
+    res.status(500).json({ message: "Sorry, there was an error during this process. Make sure to use the right credentials" })
   }
   
 }

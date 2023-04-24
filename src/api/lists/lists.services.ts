@@ -13,6 +13,7 @@ export const getAllLists = () => {
 };
 
 export const createList = async (listName: string, ownerId: string) => {
+  
   const totalItems = await prisma.fav.count();
   const indexArr = [];
 

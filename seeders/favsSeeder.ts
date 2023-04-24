@@ -29,7 +29,7 @@ const seedFav = async (prisma: PrismaClient): Promise<void> => {
     data: favs
   })
 
-  console.log('<< A bunch of Favs have been seeded successfully, hurray!!! ☺ >>');
+  console.log('<< A bunch of Favs have been created successfully, hurray!!! >>');
 }
 
 export default seedFav

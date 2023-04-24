@@ -30,6 +30,6 @@ export const isAuthenticated = (
 
     next();
   } catch (error: any) {
-    res.status(401).json({ message: error.message });
+    res.status(401).json({ message: "Sorry, there was an error during this process. Make sure to use the right credentials" });
   }
 };
