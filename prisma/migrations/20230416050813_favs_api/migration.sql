@@ -1,0 +1,2 @@
+ALTER TABLE "Fav" DROP COLUMN "listId";
+ALTER TABLE "User" ADD COLUMN     "token" TEXT;
